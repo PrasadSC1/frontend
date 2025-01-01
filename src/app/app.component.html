@@ -7,26 +7,26 @@
       <br>
       <span class="text-white fw-bold">SENOVA</span>
     </a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" routerLink="home1">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="products">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="contactUs">Contact Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink="about-us">About Us</a>
-        </li>
-        <!-- <li class="nav-item dropdown">
+    <div *ngIf="id==0">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" routerLink="home1">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" routerLink="products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" routerLink="contactUs">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" routerLink="about-us">About Us</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Dropdown
@@ -40,15 +40,15 @@
             <li><a class="dropdown-item text-white" href="#">Something else here</a></li>
           </ul>
         </li> -->
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
-      <button *ngIf="id==0" class="btn btn-outline-light ms-2" routerLink="login">Login</button>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+        <button *ngIf="id==0" class="btn btn-outline-light ms-2" routerLink="login">Login</button>
+      </div>
     </div>
   </nav>
-
 
   <!--<router-outlet></router-outlet>-->
   <div>

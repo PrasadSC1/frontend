@@ -75,6 +75,8 @@ export class ManagementComponent {
           window.alert('Something is wrong');
         } else {
           this.orders = data;
+          console.log(this.orders);
+          
           this.changeWhatToShow(2);  // Show orders when sorted
         }
       },

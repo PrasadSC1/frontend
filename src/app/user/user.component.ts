@@ -36,8 +36,6 @@ export class UserComponent {
 
   isLoading: boolean = false;
 
-
-  
   constructor(private http: HttpClient, private app: AppComponent, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
