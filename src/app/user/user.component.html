@@ -119,70 +119,11 @@
         <!-- Add to Cart Button -->
         <div class="row">
           <div class="d-flex justify-content-center">
-            <button class="btn btn-orange text-white rounded-5 mx-2">Add in Enquiry Form</button>
+            <button class="btn btn-orange text-white rounded-5 mx-2" (click)="navigateToContactUs()">
+              Fill Enquiry Form
+            </button>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Cart Section -->
-<div class="row mb-5 ">
-  <div class="col-md-12 ">
-    <button (click)="loadCartProducts()" class="btn btn-primary w-25 mb-4">View Enquiry Form</button>
-    <div *ngIf="showCart" class="mt-4">
-      <h2>Enquiry Form Data</h2>
-      <div class="row mx-5">
-        <div class="col-12 mb-4" *ngFor="let item of cartItems; let i = index">
-          <div class="card h-100 d-flex flex-row">
-            <!-- Carousel Section -->
-            <div [attr.id]="'carouselExample1' + i" class="carousel slide w-25">
-              <div class="carousel-inner">
-                <div class="carousel-item" *ngFor="let imageUrl of item.imageUrls; let imageIndex = index"
-                  [ngClass]="{'active': imageIndex === 0}">
-                  <img [src]="getSanitizedUrl(imageUrl)" alt="Product Image" class="product-image  w-100">
-                </div>
-                <span class="badge save-badge position-absolute top-0 start-0 m-2">Save {{ item.discount}}%</span>
-              </div>
-              <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExample1' + i"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExample1' + i"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-
-            <!-- Details Section -->
-            <div class="card-body w-50 d-flex flex-column justify-content-between">
-              <div>
-                <h5 class="card-title">{{ item.name }}</h5>
-                <p class="card-text"><strong>Price:</strong> ₹{{ item.price | number:'1.2-2' }}</p>
-                <p class="card-text"><strong>Description:</strong> {{ item.description }}</p>
-                <div class="d-flex align-items-center mb-2">
-                  <strong>Quantity:</strong>
-                  <input type="number" [(ngModel)]="item.newQuantity" (ngModelChange)="handleQuantityChange(item)"
-                    class="form-control ms-2" style="width: 80px;">
-                </div>
-                <p class="card-text"><strong>Amount after discount:</strong> ₹{{ calculateDiscountedAmount(item) *
-                  (item.newQuantity ?? 1) | number:'1.2-2' }}</p>
-              </div>
-              <button [disabled]="isLoading" (click)="removeItemFromCart(item.id)" class="btn btn-danger w-25">Remove
-                from Enquiry</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Total Amount and Buttons -->
-      <div class="text-center mt-4">
-        <h4>Total Amount: ₹{{ totalAmount | number:'1.2-2'}}</h4>
-        <button (click)="showCart = false" class="btn btn-warning w-25 mb-2">Back to Products</button>
-        <button [disabled]="isLoading" (click)="placeOrder()" class="btn btn-success w-25 mb-2">Confirm Enquiry</button>
       </div>
     </div>
   </div>

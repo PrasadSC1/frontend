@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { AppComponent } from '../app.component';
-
+import { AppRoutingModule } from '../app-routing.module';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -36,13 +37,18 @@ export class UserComponent {
 
   isLoading: boolean = false;
 
-  constructor(private http: HttpClient, private app: AppComponent, private sanitizer: DomSanitizer) { }
+  constructor(private http: HttpClient, private router: Router, private app: AppComponent, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.loadCategories();
     this.loadProduct();
   }
-
+  navigateToContactUs() {
+    // Display the alert
+    window.alert('Please fill the enquiry form');
+    // Navigate to the Contact Us page
+    this.router.navigate(['/contactUs']);
+  }
   loadCategories(): void {
     const url = `${this.app.baseUrl}admin/getAllCategories`;
     this.http.get(url).subscribe({

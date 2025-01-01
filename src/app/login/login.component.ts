@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { Router } from '@angular/router';
 interface ApiResponse {
   status: number;
   message: string;
@@ -11,13 +12,13 @@ interface ApiResponse {
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(public http: HttpClient, public app: AppComponent) {
+  constructor(public http: HttpClient, private router: Router, public app: AppComponent) {
   }
   user: any = {};
   isLogin: boolean = true; // Default to login form
   isLoading: boolean = false;
-  username: string = 'Admin';
-  password: string = 'Admin';
+  username: string = '';
+  password: string = '';
 
   login() {
     this.isLoading = true;
@@ -32,7 +33,8 @@ export class LoginComponent {
         } else {
           this.isLoading = false;
           this.app.id = data.id;
-          this.app.whatToShow = data.accountType;
+          // this.app.whatToShow = data.accountType;
+          this.router.navigate(['/admin']);
           window.alert('Login successful')
         }
       }

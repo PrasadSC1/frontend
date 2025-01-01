@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AppComponent } from '../../app.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-management',
@@ -18,9 +19,11 @@ export class ManagementComponent {
   isAddCatagory: boolean = false;
   catList: any;
 
-  constructor(public http: HttpClient, public app: AppComponent) {
-  console.log("in admin");
-  
+  constructor(public http: HttpClient, private router: Router, public app: AppComponent) {
+    if (app.id == 0) {
+      window.alert("Please login First")
+      this.router.navigate(['/login']);
+    }
     this.loadUserName();  // Load the user's name when component initializes
   }
 
@@ -76,7 +79,7 @@ export class ManagementComponent {
         } else {
           this.orders = data;
           console.log(this.orders);
-          
+
           this.changeWhatToShow(2);  // Show orders when sorted
         }
       },

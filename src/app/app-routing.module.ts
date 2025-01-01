@@ -5,9 +5,9 @@ import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { AboutUsComponent } from "./OtherPages/about-us/about-us.component";
 import { UserComponent } from "./user/user.component";
-import {DummyComponent} from "./dummy/dummy.component";
-import {ContactUsComponent} from "./contact-us/contact-us.component";
-import {FrontPageComponent} from "./user/front-page/front-page.component";
+import { DummyComponent } from "./dummy/dummy.component";
+import { ContactUsComponent } from "./contact-us/contact-us.component";
+import { FrontPageComponent } from "./user/front-page/front-page.component";
 
 const routes: Routes = [
   { path: 'admin', component: AdminComponent },
@@ -27,7 +27,11 @@ export const appConfig: ApplicationConfig = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled', // Restores scroll to top on navigation
+    }),
+  ],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }
