@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { Router } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './management.component.html',
   styleUrls: ['./management.component.css']
 })
-export class ManagementComponent {
+export class ManagementComponent implements OnInit {
 
   whatToShow: number = 0;  // Controls which section is visible
   products: any;    // Array to hold product data
@@ -20,11 +20,13 @@ export class ManagementComponent {
   catList: any;
 
   constructor(public http: HttpClient, private router: Router, public app: AppComponent) {
-    if (app.id == 0) {
+    this.loadUserName();  // Load the user's name when component initializes
+  }
+  ngOnInit(): void {
+    if (this.app.id == 0) {
       window.alert("Please login First")
       this.router.navigate(['/login']);
     }
-    this.loadUserName();  // Load the user's name when component initializes
   }
 
   // Load the user's name from the server

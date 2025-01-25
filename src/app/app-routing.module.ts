@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'contactUs', component: ContactUsComponent },
   { path: 'home1', component: FrontPageComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // Optional default route
-  { path: '**', redirectTo: 'home', pathMatch: 'full' } // Optional wildcard route for 404
+  { path: '**', redirectTo: 'home', pathMatch: 'full' } // Wildcard route for unmatched paths
 ];
 
 export const appConfig: ApplicationConfig = {
@@ -29,9 +29,10 @@ export const appConfig: ApplicationConfig = {
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
+      useHash: true, // Enables hash-based routing
       scrollPositionRestoration: 'enabled', // Restores scroll to top on navigation
     }),
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

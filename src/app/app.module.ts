@@ -21,7 +21,6 @@ import { HomeComponent } from './home/home.component';
 import { DummyComponent } from './dummy/dummy.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +40,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
